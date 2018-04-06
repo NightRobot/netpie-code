@@ -1,0 +1,32 @@
+<html>
+<body>
+    <script>
+        var APPID = "ubiproject"; //enter your appid
+        var KEY = "nHevq7ihSZapjR2"; //enter your key
+        var SECRET = "AdbqiQAkzj67XqpSVZSKwZXXO"; //enter your secret
+        var Topic = "/status";
+
+        function GetButtonStatus() {
+            var url = 'https://api.netpie.io/topic/' + APPID + Topic + '?auth=' + KEY + ':' + SECRET;
+            var xmlHttp = new XMLHttpRequest();
+
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.status == 200 && xmlHttp.readyState == 4) {
+                    document.body.className = 'ok';
+                    var result = xmlHttp.responseText;
+                    window.alert(result);
+                } else {
+                    document.body.className = 'error';
+                }
+            }
+            xmlHttp.open('GET', url, true);
+            xmlHttp.send(null);
+        }
+    </script>
+
+    <center>
+        <button onclick="GetButtonStatus()" id="Button">Check Status</button>
+    </center>
+
+</body>
+</html>

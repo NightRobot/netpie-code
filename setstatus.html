@@ -1,0 +1,31 @@
+<html>
+<body>
+    <script>
+        var APPID = "ubiproject"; //enter your appid
+        var KEY = "nHevq7ihSZapjR2"; //enter your key
+        var SECRET = "AdbqiQAkzj67XqpSVZSKwZXXO"; //enter your secret
+        var Topic = "/status"; //choose any topic name
+
+        function PressButtonOn() {
+            var url = 'https://api.netpie.io/topic/' + APPID + Topic + '?retain&auth=' + KEY + ':' + SECRET;
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open('PUT', url, true);
+            xmlHttp.send('ON');
+            window.alert(url); //for debugging purpose
+        }
+
+        function PressButtonOff() {
+            var url = 'https://api.netpie.io/topic/' + APPID + Topic + '?retain&auth=' + KEY + ':' + SECRET;
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open('PUT', url, true);
+            xmlHttp.send('OFF');
+            window.alert(url); //for debugging purpose
+        }
+    </script>
+
+    <center>
+        <button onclick="PressButtonOn()" id="ButtonOn">ON</button>
+        <button onclick="PressButtonOff()" id="ButtonOff">OFF</button>
+    </center>
+</body>
+</html>
